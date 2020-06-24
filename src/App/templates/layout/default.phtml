@@ -1,0 +1,52 @@
+<?php
+$this->headLink()
+    ->prependStylesheet('https://use.fontawesome.com/releases/v5.13.0/css/all.css')
+    ->prependStylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css');
+$this->inlineScript()
+
+    ->prependFile('/js/app.js', 'module')
+//    ->prependFile('https://npmcdn.com/history@5.0.0/umd/history.production.min.js')
+    ->prependFile('https://unpkg.com/create-react-class@15.6.0/create-react-class.min.js')
+    ->prependFile('https://unpkg.com/react-router-dom@5.2.0/umd/react-router-dom.js')
+    ->prependFile('https://unpkg.com/html-react-parser@0.13.0/dist/html-react-parser.js')
+    ->prependFile('https://unpkg.com/react-dom@16.13.1/umd/react-dom.development.js')
+    ->prependFile('https://unpkg.com/react@16.13.1/umd/react.development.js')
+
+    ->prependFile('https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js')
+    ->prependFile('https://code.jquery.com/jquery-3.5.1.min.js');
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="https://getlaminas.org/images/favicon/favicon.ico" />
+    <?=$this->headTitle('mezzio')->setSeparator(' - ')->setAutoEscape(false)?>
+    <?=$this->headMeta()?>
+    <?=$this->headLink()?>
+    <style>
+        body { padding-top: 70px; }
+        .app { min-height: 100vh; }
+        .app-footer { padding-bottom: 1em; }
+        .mezzio-green, h2 a, h2 a:hover { color: #009655; }
+        .navbar-brand { padding: 0; }
+        .navbar-brand img { margin: -.5rem 0; filter: brightness(0) invert(1); }
+    </style>
+</head>
+<body class="app">
+
+    <div id="root"></div>
+
+    <footer class="app-footer">
+        <div class="container">
+            <hr />
+            <p>
+                &copy; <?=date('Y')?> <a href="https://getlaminas.org/">Laminas Project</a> a Series of LF Projects, LLC.
+            </p>
+        </div>
+    </footer>
+
+    <?=$this->inlineScript()?>
+</body>
+</html>
