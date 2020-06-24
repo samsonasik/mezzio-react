@@ -1,6 +1,6 @@
 {
-    "name": "mezzio/mezzio-skeleton",
-    "description": "Laminas mezzio skeleton. Begin developing PSR-15 middleware applications in seconds!",
+    "name": "samsonasik/mezzio-react",
+    "description": "Laminas mezzio skeleton with React.js Integration",
     "type": "project",
     "license": "BSD-3-Clause",
     "keywords": [
