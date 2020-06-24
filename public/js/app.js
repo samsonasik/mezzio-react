@@ -1,5 +1,5 @@
-import Navigation from './Navigation.js';
 import createPage from './create-page.js';
+import Navigation from './Navigation.js';
 
 const {
     HashRouter,
