@@ -33,6 +33,13 @@ const Main = () => React.createElement(
                 path: "/contact",
                 component: createPage('/contact', 'Contact')
             }
+        ),
+        React.createElement(
+            Route, {
+                exact: true,
+                path: "*",
+                component: createPage('*', '404 Page')
+            }
         )
     )
 );
