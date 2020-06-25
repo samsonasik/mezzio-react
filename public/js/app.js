@@ -2,7 +2,7 @@ import createPage from './create-page.js';
 import Navigation from './Navigation.js';
 
 const {
-    HashRouter,
+    BrowserRouter,
     Switch,
     Route
 } = ReactRouterDOM;
@@ -38,7 +38,7 @@ const Main = () => React.createElement(
             Route, {
                 exact: true,
                 path: "*",
-                component: createPage('*', '404 Page')
+                component: createPage(location.pathname, '404 Page')
             }
         )
     )
@@ -61,7 +61,7 @@ const App = () => React.createElement(
 
 ReactDOM.render(
     React.createElement(
-        HashRouter,
+        BrowserRouter,
         null,
         React.createElement(App, null)
     ),
