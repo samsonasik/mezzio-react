@@ -1,5 +1,9 @@
 # Example Using React.js in Mezzio application
 
+![ci build](https://github.com/samsonasik/mezzio-react/workflows/ci%20build/badge.svg)
+[![Code Coverage](https://codecov.io/gh/samsonasik/mezzio-react/branch/master/graph/badge.svg)](https://codecov.io/gh/samsonasik/mezzio-react)
+[![Downloads](https://poser.pugx.org/samsonasik/mezzio-react/downloads)](https://packagist.org/packages/samsonasik/mezzio-react)
+
 Introduction
 ------------
 

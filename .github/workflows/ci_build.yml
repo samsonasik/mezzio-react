@@ -1,0 +1,42 @@
+name: "ci build"
+
+on:
+  pull_request:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  build:
+    name: PHP ${{ matrix.php-versions }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php-versions: ['7.3', '7.4']
+    steps:
+      - name: Setup PHP Action
+        uses: shivammathur/setup-php@1.8.2
+        with:
+          extensions: intl
+          php-version: "${{ matrix.php-versions }}"
+          coverage: pcov
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: "Validate composer.json and composer.lock"
+        run: "bin/composer validate"
+      - name: "Install dependencies"
+        run: "bin/composer install --prefer-dist --no-progress && bin/composer development-enable"
+      - name: "CS Check"
+        run: "bin/composer cs-check"
+      - name: "Run test suite"
+        run: "bin/composer test-coverage"
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+         token: ${{ secrets.CODECOV_TOKEN }}
+         file: ./clover.xml
+         flags: tests
+         name: codecov-umbrella
+         yml: ./codecov.yml
+         fail_ci_if_error: true
