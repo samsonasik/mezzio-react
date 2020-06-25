@@ -14,7 +14,17 @@ let createPage = (path, title) => class Page extends React.Component {
             ).then(response =>  resolve(response.text()));
         }).then(result => {
             this.setState({ content : result }),
-            document.title = title
+            document.title = title;
+
+            [].filter.call(document.querySelectorAll('.nav-link'), function(el) {
+                if (el.getAttribute('href') === path) {
+                    el.classList.add('active');
+                    return;
+                }
+
+                el.classList.remove('active');
+            });
+
         });
     }
 
