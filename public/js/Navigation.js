@@ -1,26 +1,6 @@
-let navigationTemplate = `
-<div class="container">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="#navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a href="/#/"class="navbar-brand"><img src="https://docs.laminas.dev/img/laminas-mezzio-rgb.svg" alt="Laminas Mezzio" height="56" /></a>
-    </div>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a href="/#/" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item">
-                <a href="/#/about" class="nav-link">About</a>
-            </li>
-            <li class="nav-item">
-                <a href="/#/contact" class="nav-link">Contact</a>
-            </li>
-        </ul>
-    </div>
-</div>
-`;
+const {
+    Link
+} = ReactRouterDOM
 
 class Navigation extends React.Component {
     render() {
@@ -30,7 +10,84 @@ class Navigation extends React.Component {
                 className : "navbar navbar-expand-sm navbar-dark bg-dark fixed-top",
                 role: "navigation"
             },
-            HTMLReactParser(navigationTemplate)
+            React.createElement(
+                'div',
+                {
+                    className: "container"
+                },
+                React.createElement(
+                    'div',
+                    {
+                        className: "navbar-header"
+                    },
+                    React.createElement(
+                        'button',
+                        {
+                            className: "navbar-toggler",
+                            "data-toggle": "collapse",
+                            "data-target": "#navbarCollapse",
+                            "aria-controls": "#navbarCollapse",
+                            "aria-expanded": "false",
+                            "aria-label": "Toggle navigation"
+                        },
+                        React.createElement(
+                            'span',
+                            {
+                                className: "navbar-toggler-icon"
+                            }
+                        )
+                    ),
+                    React.createElement(
+                        Link,
+                        {
+                            to: "/",
+                            className: "navbar-brand",
+                        },
+                        React.createElement(
+                            'img',
+                            {
+                                src: "https://docs.laminas.dev/img/laminas-mezzio-rgb.svg",
+                                alt: "Laminas Mezzio",
+                                height: 56
+                            }
+                        )
+                    )
+                ),
+                React.createElement(
+                    'div',
+                    {
+                        className: "collapse navbar-collapse",
+                        id: "navbarCollapse"
+                    },
+                    React.createElement(
+                        "ul",
+                        {
+                            className: "navbar-nav mr-auto"
+                        },
+                        React.createElement(
+                            "li",
+                            {
+                                className: "nav-item"
+                            },
+                            React.createElement(Link, { className: 'nav-link', to: "/"}, "Home")
+                        ),
+                        React.createElement(
+                            "li",
+                            {
+                                className: "nav-item"
+                            },
+                            React.createElement(Link, { className: 'nav-link', to: "/about"}, "About")
+                        ),
+                        React.createElement(
+                            "li",
+                            {
+                                className: "nav-item"
+                            },
+                            React.createElement(Link, { className: 'nav-link', to: "/contact"}, "Contact")
+                        )
+                    )
+                )
+            )
         );
     }
 }
