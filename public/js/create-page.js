@@ -24,7 +24,6 @@ let createPage = (path, title) => class Page extends React.Component {
 
                 el.classList.remove('active');
             });
-
         });
     }
 
