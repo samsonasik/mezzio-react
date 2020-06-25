@@ -1,8 +1,7 @@
 {
     "name": "samsonasik/mezzio-react",
-    "description": "Laminas mezzio skeleton with React.js Integration",
     "type": "project",
-    "license": "BSD-3-Clause",
+    "description": "Laminas mezzio skeleton with React.js Integration",
     "keywords": [
         "laminas",
         "mezzio",
@@ -14,15 +13,34 @@
         "psr-15"
     ],
     "homepage": "https://mezzio.dev",
-    "support": {
-        "docs": "https://docs.mezzio.dev/mezzio/",
-        "issues": "https://github.com/mezzio/mezzio-skeleton/issues",
-        "source": "https://github.com/mezzio/mezzio-skeleton",
-        "rss": "https://github.com/mezzio/mezzio-skeleton/releases.atom",
-        "chat": "https://laminas.dev/chat",
-        "forum": "https://discourse.laminas.dev"
+    "license": "BSD-3-Clause",
+    "require": {
+        "php": "^7.1",
+        "laminas/laminas-component-installer": "^2.1.2",
+        "laminas/laminas-config-aggregator": "^1.2",
+        "laminas/laminas-diactoros": "^2.3.0",
+        "laminas/laminas-servicemanager": "^3.4",
+        "laminas/laminas-stdlib": "^3.2.1",
+        "laminas/laminas-zendframework-bridge": "^1.0",
+        "mezzio/mezzio": "^3.2.1",
+        "mezzio/mezzio-helpers": "^5.3",
+        "mezzio/mezzio-laminasrouter": "^3.0.1",
+        "mezzio/mezzio-laminasviewrenderer": "^2.2"
+    },
+    "require-dev": {
+        "filp/whoops": "^2.7.1",
+        "laminas/laminas-coding-standard": "^2.0.0",
+        "laminas/laminas-development-mode": "^3.2",
+        "mezzio/mezzio-tooling": "^1.3",
+        "phpspec/prophecy": "^1.10.3",
+        "phpspec/prophecy-phpunit": "^2.0",
+        "phpunit/phpunit": "^9.0.1",
+        "roave/security-advisories": "dev-master"
     },
     "config": {
+        "platform": {
+            "php": "7.3"
+        },
         "sort-packages": true
     },
     "extra": {
@@ -36,29 +54,6 @@
                 "mezzio/mezzio-laminasviewrenderer"
             ]
         }
-    },
-    "require": {
-        "php": "^7.1",
-        "laminas/laminas-component-installer": "^2.1.2",
-        "laminas/laminas-config-aggregator": "^1.2",
-        "laminas/laminas-diactoros": "^2.3.0",
-        "laminas/laminas-stdlib": "^3.2.1",
-        "laminas/laminas-zendframework-bridge": "^1.0",
-        "mezzio/mezzio": "^3.2.1",
-        "mezzio/mezzio-helpers": "^5.3",
-        "laminas/laminas-servicemanager": "^3.4",
-        "mezzio/mezzio-laminasrouter": "^3.0.1",
-        "mezzio/mezzio-laminasviewrenderer": "^2.2"
-    },
-    "require-dev": {
-        "laminas/laminas-coding-standard": "^2.0.0",
-        "laminas/laminas-development-mode": "^3.2",
-        "mezzio/mezzio-tooling": "^1.3",
-        "phpspec/prophecy": "^1.10.3",
-        "phpspec/prophecy-phpunit": "^2.0",
-        "phpunit/phpunit": "^9.0.1",
-        "roave/security-advisories": "dev-master",
-        "filp/whoops": "^2.7.1"
     },
     "autoload": {
         "psr-4": {
@@ -74,10 +69,6 @@
         "post-create-project-cmd": [
             "@development-enable"
         ],
-        "development-disable": "laminas-development-mode disable",
-        "development-enable": "laminas-development-mode enable",
-        "development-status": "laminas-development-mode status",
-        "mezzio": "mezzio --ansi",
         "check": [
             "@cs-check",
             "@test"
@@ -85,8 +76,20 @@
         "clear-config-cache": "php bin/clear-config-cache.php",
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
+        "development-disable": "laminas-development-mode disable",
+        "development-enable": "laminas-development-mode enable",
+        "development-status": "laminas-development-mode status",
+        "mezzio": "mezzio --ansi",
         "serve": "php -S 0.0.0.0:8080 -t public/",
         "test": "phpunit --colors=always",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+    },
+    "support": {
+        "issues": "https://github.com/mezzio/mezzio-skeleton/issues",
+        "forum": "https://discourse.laminas.dev",
+        "chat": "https://laminas.dev/chat",
+        "source": "https://github.com/mezzio/mezzio-skeleton",
+        "docs": "https://docs.mezzio.dev/mezzio/",
+        "rss": "https://github.com/mezzio/mezzio-skeleton/releases.atom"
     }
 }
