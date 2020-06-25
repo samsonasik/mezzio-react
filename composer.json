@@ -12,8 +12,16 @@
         "psr-11",
         "psr-15"
     ],
-    "homepage": "https://mezzio.dev",
+    "homepage": "https://github.com/samsonasik/mezzio-react",
     "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Abdul Malik Ikhsan",
+            "email": "samsonasik@gmail.com",
+            "homepage": "http://samsonasik.wordpress.com",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "php": "^7.1",
         "laminas/laminas-component-installer": "^2.1.2",
@@ -82,7 +90,7 @@
         "mezzio": "mezzio --ansi",
         "serve": "php -S 0.0.0.0:8080 -t public/",
         "test": "phpunit --colors=always",
-        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml --coverage-html=test/html --testdox"
     },
     "support": {
         "issues": "https://github.com/mezzio/mezzio-skeleton/issues",
