@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d59b25e84825b34682ec7520c50755a",
+    "content-hash": "90cfd7f3022cbbe29170c5b30372e34a",
     "packages": [
         {
             "name": "container-interop/container-interop",
