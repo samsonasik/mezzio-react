@@ -26,3 +26,67 @@ $ composer serve
 ```
 
 *3.* Open web browser http://localhost:8080
+
+## Production
+
+For deploy to production purpose, it has `webpack.config.js` in root directory that when we run `webpack` command, we can get `public/js/dist/bundle.js` after run it. If you don't have a `webpack` installed yet in your system, you can install nodejs and install `webpack` and `webpack-cli`:
+
+```bash
+$ sudo npm install -g webpack
+$ sudo npm install -g webpack-cli
+```
+
+So, we can run:
+
+```bash
+$ webpack
+
+Hash: 0dedd8dd8641d88b7665
+Version: webpack 4.43.0
+Time: 173ms
+Built at: 06/26/2020 9:02:37 PM
+                   Asset      Size  Chunks             Chunk Names
+public/js/dist/bundle.js  3.33 KiB       0  [emitted]  main
+Entrypoint main = public/js/dist/bundle.js
+[0] ./public/js/app.js + 2 modules 6.32 KiB {0} [built]
+    | ./public/js/app.js 1.62 KiB [built]
+    | ./public/js/create-page.js 1.36 KiB [built]
+    | ./public/js/Navigation.js 3.33 KiB [built]
+```
+
+After it generated, we can run the following commands to get `production` environment by default:
+
+```bash
+# ensure no left over file development config
+$ rm config/development.config.php && rm config/autoload/development.local.php
+
+# install with --no-dev
+$ composer install --no-dev
+
+# ensure no left over file cache before re-build cache
+$ composer clear-config-cache
+```
+
+In `default.phtml`, we have a `isDevelopment()` view helper check to use `js/app.js` when on development, and use `/js/dist/bundle.js` on production when exists.
+
+```php
+// src/App/templates/layout/default.phtml
+$isDevelopment = $this->isDevelopment();
+
+// ...
+    ->prependFile(
+        $isDevelopment
+            ? '/js/app.js'
+            : (
+                // when after run webpack, allow to use bundled js
+                // fallback to use /js/app.js when not
+                file_exists('./public/js/dist/bundle.js')
+                    ? '/js/dist/bundle.js'
+                    : '/js/app.js'
+            ),
+        'module'
+    )
+// ...
+```
+
+that will automatically take care of that.
