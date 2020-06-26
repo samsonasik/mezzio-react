@@ -14,7 +14,7 @@ A Mezzio 3 Skeleton Application with React.js integration.
 *1.* Run composer create-project command:
 
 ```bash
-$ composer create-project -sdev samsonasik/mezzio-react
+$ composer create-project samsonasik/mezzio-react
 $ composer development-enable
 ```
 
