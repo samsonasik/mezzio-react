@@ -7,34 +7,38 @@ const {
     Route
 } = ReactRouterDOM;
 
-const Main = () => React.createElement(
+const {
+    createElement
+} = React;
+
+const Main = () => createElement(
     "main",
     null,
-    React.createElement(
+    createElement(
         Switch,
         null,
-        React.createElement(
+        createElement(
             Route, {
                 exact: true,
                 path: "/",
                 component: createPage('/', 'Home')
             }
         ),
-        React.createElement(
+        createElement(
             Route, {
                 exact: true,
                 path: "/about",
                 component: createPage('/about', 'About')
             }
         ),
-        React.createElement(
+        createElement(
             Route, {
                 exact: true,
                 path: "/contact",
                 component: createPage('/contact', 'Contact')
             }
         ),
-        React.createElement(
+        createElement(
             Route, {
                 exact: true,
                 path: "*",
@@ -44,26 +48,26 @@ const Main = () => React.createElement(
     )
 );
 
-const Header = () => React.createElement(
+const Header = () => createElement(
     'header',
     {
         className: 'app-header'
     },
-    React.createElement(Navigation)
+    createElement(Navigation)
 );
 
-const App = () => React.createElement(
+const App = () => createElement(
     "div",
     null,
-    React.createElement(Header, null),
-    React.createElement(Main, null)
+    createElement(Header, null),
+    createElement(Main, null)
 );
 
 ReactDOM.render(
-    React.createElement(
+    createElement(
         BrowserRouter,
         null,
-        React.createElement(App, null)
+        createElement(App, null)
     ),
     document.getElementById('root')
 );

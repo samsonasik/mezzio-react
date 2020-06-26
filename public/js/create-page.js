@@ -3,6 +3,10 @@ const {
     useEffect
 } = React;
 
+const {
+    createElement
+} = React;
+
 let createPage = (path, title) => {
     return () => {
         const [content, setContent] = useState('');
@@ -33,12 +37,12 @@ let createPage = (path, title) => {
             });
         }, []);
 
-        return React.createElement(
+        return createElement(
             'div',
             {
                 className : "app-content",
             },
-            React.createElement(
+            createElement(
                 "main",
                 {
                     className : "container"

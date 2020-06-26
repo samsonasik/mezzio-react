@@ -1,26 +1,31 @@
 const {
     Link
-} = ReactRouterDOM
+} = ReactRouterDOM;
 
-class Navigation extends React.Component {
+const {
+    Component,
+    createElement
+} = React;
+
+class Navigation extends Component {
     render() {
-      return React.createElement(
+      return createElement(
             'nav',
             {
                 className : "navbar navbar-expand-sm navbar-dark bg-dark fixed-top",
                 role: "navigation"
             },
-            React.createElement(
+            createElement(
                 'div',
                 {
                     className: "container"
                 },
-                React.createElement(
+                createElement(
                     'div',
                     {
                         className: "navbar-header"
                     },
-                    React.createElement(
+                    createElement(
                         'button',
                         {
                             className: "navbar-toggler",
@@ -30,20 +35,20 @@ class Navigation extends React.Component {
                             "aria-expanded": "false",
                             "aria-label": "Toggle navigation"
                         },
-                        React.createElement(
+                        createElement(
                             'span',
                             {
                                 className: "navbar-toggler-icon"
                             }
                         )
                     ),
-                    React.createElement(
+                    createElement(
                         Link,
                         {
                             to: "/",
                             className: "navbar-brand",
                         },
-                        React.createElement(
+                        createElement(
                             'img',
                             {
                                 src: "https://docs.laminas.dev/img/laminas-mezzio-rgb.svg",
@@ -53,37 +58,37 @@ class Navigation extends React.Component {
                         )
                     )
                 ),
-                React.createElement(
+                createElement(
                     'div',
                     {
                         className: "collapse navbar-collapse",
                         id: "navbarCollapse"
                     },
-                    React.createElement(
+                    createElement(
                         "ul",
                         {
                             className: "navbar-nav mr-auto"
                         },
-                        React.createElement(
+                        createElement(
                             "li",
                             {
                                 className: "nav-item"
                             },
-                            React.createElement(Link, { className: 'nav-link', to: "/"}, "Home")
+                            createElement(Link, { className: 'nav-link', to: "/"}, "Home")
                         ),
-                        React.createElement(
+                        createElement(
                             "li",
                             {
                                 className: "nav-item"
                             },
-                            React.createElement(Link, { className: 'nav-link', to: "/about"}, "About")
+                            createElement(Link, { className: 'nav-link', to: "/about"}, "About")
                         ),
-                        React.createElement(
+                        createElement(
                             "li",
                             {
                                 className: "nav-item"
                             },
-                            React.createElement(Link, { className: 'nav-link', to: "/contact"}, "Contact")
+                            createElement(Link, { className: 'nav-link', to: "/contact"}, "Contact")
                         )
                     )
                 )
