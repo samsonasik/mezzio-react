@@ -1,5 +1,5 @@
 const {
-    Link
+    NavLink
 } = ReactRouterDOM;
 
 const {
@@ -43,10 +43,10 @@ class Navigation extends Component {
                         )
                     ),
                     createElement(
-                        Link,
+                        NavLink,
                         {
                             to: "/",
-                            className: "navbar-brand",
+                            className: "navbar-brand"
                         },
                         createElement(
                             'img',
@@ -74,21 +74,21 @@ class Navigation extends Component {
                             {
                                 className: "nav-item"
                             },
-                            createElement(Link, { className: 'nav-link', to: "/"}, "Home")
+                            createElement(NavLink, { className: 'nav-link', to: "/", exact: true }, "Home")
                         ),
                         createElement(
                             "li",
                             {
                                 className: "nav-item"
                             },
-                            createElement(Link, { className: 'nav-link', to: "/about"}, "About")
+                            createElement(NavLink, { className: 'nav-link', to: "/about", exact: true }, "About")
                         ),
                         createElement(
                             "li",
                             {
                                 className: "nav-item"
                             },
-                            createElement(Link, { className: 'nav-link', to: "/contact"}, "Contact")
+                            createElement(NavLink, { className: 'nav-link', to: "/contact", exact: true }, "Contact")
                         )
                     )
                 )

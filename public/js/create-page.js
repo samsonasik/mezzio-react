@@ -25,15 +25,6 @@ let createPage = (path, title) => {
             }).then(result => {
                 setContent(result);
                 document.title = title;
-
-                [].filter.call(document.querySelectorAll('.nav-link'), function(el) {
-                    if (el.getAttribute('href') === path) {
-                        el.classList.add('active');
-                        return;
-                    }
-
-                    el.classList.remove('active');
-                });
             });
         }, []);
 
