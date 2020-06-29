@@ -1,4 +1,9 @@
-let createPage = (path, title) => class Page extends React.Component {
+const {
+    Component,
+    createElement
+} = React;
+
+let createPage = (path, title) => class Page extends Component {
     constructor(props) {
         super(props);
         this.state = { content: ''};
@@ -22,12 +27,12 @@ let createPage = (path, title) => class Page extends React.Component {
     }
 
     render() {
-      return React.createElement(
+      return createElement(
             'div',
             {
                 className : "app-content",
             },
-            React.createElement(
+            createElement(
                 "main",
                 {
                     className : "container"
