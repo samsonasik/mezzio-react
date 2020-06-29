@@ -32,7 +32,7 @@ let createPage = (path, title) => class Page extends React.Component {
                 {
                     className : "container"
                 },
-                HTMLReactParser(this.state.content)
+                HTMLReactParser(DOMPurify.sanitize(this.state.content))
             )
         );
     }
