@@ -1,44 +1,38 @@
-const {
-    useState,
-    useEffect
-} = React;
+let createPage = (path, title) => class Page extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { content: ''};
+    }
 
-const {
-    createElement
-} = React;
-
-let createPage = (path, title) => {
-    return () => {
-        const [content, setContent] = useState('');
-
-        useEffect(() => {
-            new Promise( (resolve) => {
-                fetch(
-                    path,
-                    {
-                        method: 'GET',
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest',
-                        }
+    componentDidMount() {
+        new Promise( (resolve) => {
+            fetch(
+                path,
+                {
+                    method: 'GET',
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
                     }
-                ).then(response =>  resolve(response.text()));
-            }).then(result => {
-                setContent(result);
-                document.title = title;
-            });
-        }, []);
+                }
+            ).then(response =>  resolve(response.text()));
+        }).then(result => {
+            this.setState({ content : result });
+            document.title = title;
+        });
+    }
 
-        return createElement(
+    render() {
+      return React.createElement(
             'div',
             {
                 className : "app-content",
             },
-            createElement(
+            React.createElement(
                 "main",
                 {
                     className : "container"
                 },
-                HTMLReactParser(content)
+                HTMLReactParser(this.state.content)
             )
         );
     }
