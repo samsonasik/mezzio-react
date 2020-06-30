@@ -10,7 +10,7 @@ String.prototype.interpolate = function(state) {
     });
 };
 
-let createPage = (path, title, data = {}) => class Page extends Component {
+let createPage = (title, data = {}) => class Page extends Component {
     constructor(props) {
         super(props);
         this.state = Object.assign({ content: ''}, data);
@@ -19,7 +19,7 @@ let createPage = (path, title, data = {}) => class Page extends Component {
     componentDidMount() {
         new Promise( (resolve) => {
             fetch(
-                path,
+                this.props.location.pathname,
                 {
                     method: 'GET',
                     headers: {

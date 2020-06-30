@@ -21,28 +21,28 @@ const Main = () => createElement(
             Route, {
                 exact: true,
                 path: "/",
-                component: createPage('/', 'Home')
+                component: createPage('Home')
             }
         ),
         createElement(
             Route, {
                 exact: true,
                 path: "/about",
-                component: createPage('/about', 'About', { name : 'Abdul Malik Ikhsan'})
+                component: createPage('About', { name : 'Abdul Malik Ikhsan'})
             }
         ),
         createElement(
             Route, {
                 exact: true,
                 path: "/contact",
-                component: createPage('/contact', 'Contact')
+                component: createPage('Contact')
             }
         ),
         createElement(
             Route, {
                 exact: true,
                 path: "*",
-                component: createPage(location.pathname, '404 Page')
+                component: createPage('404 Page')
             }
         )
     )
