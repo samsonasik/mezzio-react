@@ -28,7 +28,7 @@ const Main = () => createElement(
             Route, {
                 exact: true,
                 path: "/about",
-                component: createPage('/about', 'About')
+                component: createPage('/about', 'About', { name : 'Abdul Malik Ikhsan'})
             }
         ),
         createElement(
