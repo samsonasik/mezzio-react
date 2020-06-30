@@ -3,13 +3,6 @@ const {
     createElement
 } = React;
 
-// https://stackoverflow.com/questions/1408289/how-can-i-do-string-interpolation-in-javascript
-String.prototype.interpolate = function(state) {
-    return this.replace(/\${\s+this\.state\.(\w+)\s+}/, function(match, expr) {
-        return match && (state || window)[expr];
-    });
-};
-
 let createPage = (title, data = {}) => class Page extends Component {
     constructor(props) {
         super(props);
@@ -29,7 +22,7 @@ let createPage = (title, data = {}) => class Page extends Component {
             ).then(response =>  resolve(response.text()));
         }).then(result => {
             this.setState({
-                content: DOMPurify.sanitize(result).interpolate(this.state)
+                content: eval("`"+DOMPurify.sanitize(result)+"`")
             });
             document.title = title;
         });
