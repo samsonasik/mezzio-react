@@ -2,74 +2,74 @@ import createPage from './create-page.js';
 import Navigation from './Navigation.js';
 
 const {
-    BrowserRouter,
-    Switch,
-    Route
+  BrowserRouter,
+  Switch,
+  Route
 } = ReactRouterDOM;
 
 const {
-    createElement
+  createElement
 } = React;
 
 const Main = () => createElement(
-    "main",
+  'main',
+  null,
+  createElement(
+    Switch,
     null,
     createElement(
-        Switch,
-        null,
-        createElement(
-            Route, {
-                exact: true,
-                path: "/",
-                component: createPage('Home')
-            }
-        ),
-        createElement(
-            Route, {
-                exact: true,
-                path: "/about",
-                component: createPage('About', { name : 'Abdul Malik Ikhsan'})
-            }
-        ),
-        createElement(
-            Route, {
-                exact: true,
-                path: "/contact",
-                component: createPage('Contact')
-            }
-        ),
-        createElement(
-            Route, {
-                exact: true,
-                path: "*",
-                component: createPage('404 Page')
-            }
-        )
+      Route, {
+        exact: true,
+        path: '/',
+        component: createPage('Home')
+      }
+    ),
+    createElement(
+      Route, {
+        exact: true,
+        path: '/about',
+        component: createPage('About', {name: 'Abdul Malik Ikhsan'})
+      }
+    ),
+    createElement(
+      Route, {
+        exact: true,
+        path: '/contact',
+        component: createPage('Contact')
+      }
+    ),
+    createElement(
+      Route, {
+        exact: true,
+        path: '*',
+        component: createPage('404 Page')
+      }
     )
+  )
 );
 
 const Header = () => createElement(
-    'header',
-    {
-        className: 'app-header'
-    },
-    createElement(Navigation)
+  'header',
+  {
+    className: 'app-header'
+  },
+  createElement(Navigation)
 );
 
 const App = () => createElement(
-    "div",
-    null,
-    createElement(Header, null),
-    createElement(Main, null)
+  'div',
+  null,
+  createElement(Header, null),
+  createElement(Main, null)
 );
 
 ReactDOM.render(
-    createElement(
-        BrowserRouter,
-        null,
-        createElement(App, null)
-    ),
-    document.getElementById('root')
+  createElement(
+    BrowserRouter,
+    null,
+    createElement(App, null)
+  ),
+  document.getElementById('root')
 );
 
 // https://reactjs.org/docs/react-without-jsx.html

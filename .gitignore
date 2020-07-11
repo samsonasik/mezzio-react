@@ -4,3 +4,6 @@
 /vendor/
 /test/html
 /public/js/dist
+
+.idea/
+/.idea
