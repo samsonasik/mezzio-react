@@ -9,6 +9,13 @@ Introduction
 
 A Mezzio 3 Skeleton Application with React.js integration.
 
+Features
+--------
+
+- SPA application with React Router DOM with cached pages after visited.
+- Using server side template from Mezzio 3, eval'd with DOMPurify it first.
+- Webpack support for [production](#production)
+
 ## Setup
 
 *1.* Run composer create-project command:
