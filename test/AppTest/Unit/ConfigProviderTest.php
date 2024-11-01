@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class ConfigProviderTest extends TestCase
 {
-    private $configProvider;
+    private ConfigProvider $configProvider;
 
     protected function setUp(): void
     {

@@ -14,7 +14,7 @@ use function in_array;
 
 class XMLHttpRequestTemplateMiddleware implements MiddlewareInterface
 {
-    private $template;
+    private TemplateRendererInterface $template;
 
     public function __construct(TemplateRendererInterface $template)
     {
