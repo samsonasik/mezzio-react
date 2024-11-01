@@ -18,8 +18,9 @@ $this->inlineScript()
             ),
         'module'
     )
-    // upgrade react-router-dom 6 later ...
+    // help wanted: upgrade to react-router-dom 6
     //->prependFile('https://unpkg.com/react-router-dom@6.27.0/dist/umd/react-router-dom.'. (! $isDevelopment ? 'min' : 'development') . '.js')
+
     ->prependFile('https://unpkg.com/react-router-dom@5.2.0/umd/react-router-dom.'. (! $isDevelopment ? 'min.' : '') . 'js')
     ->prependFile('https://unpkg.com/html-react-parser@5.1.18/dist/html-react-parser.'. (! $isDevelopment ? 'min.' : '') . 'js')
     ->prependFile('https://unpkg.com/dompurify@2.0.12/dist/purify.'. (! $isDevelopment ? 'min.' : '') . 'js')
