@@ -14,7 +14,7 @@ use function in_array;
 
 class XMLHttpRequestTemplateMiddleware implements MiddlewareInterface
 {
-    private $template;
+    private TemplateRendererInterface $template;
 
     public function __construct(TemplateRendererInterface $template)
     {
@@ -25,7 +25,7 @@ class XMLHttpRequestTemplateMiddleware implements MiddlewareInterface
     {
         if (in_array('XMLHttpRequest', $request->getHeader('X-Requested-With'), true)) {
             (function ($template) {
-                $template->layout = false;
+                $template->layout = null;
             })->bindTo($this->template, $this->template)($this->template);
         }
 

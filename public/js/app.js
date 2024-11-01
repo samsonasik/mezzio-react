@@ -63,13 +63,16 @@ const App = () => createElement(
   createElement(Main, null)
 );
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(
+  document.getElementById('root')
+);
+
+root.render(
   createElement(
     BrowserRouter,
     null,
     createElement(App, null)
-  ),
-  document.getElementById('root')
+  )
 );
 
 // https://reactjs.org/docs/react-without-jsx.html

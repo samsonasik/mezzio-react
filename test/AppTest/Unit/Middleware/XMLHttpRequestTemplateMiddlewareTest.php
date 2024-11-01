@@ -9,6 +9,7 @@ use Laminas\Diactoros\Response\HtmlResponse;
 use Mezzio\Template\TemplateRendererInterface;
 use PHPUnit\Framework\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;
+use Prophecy\Prophecy\ObjectProphecy;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
@@ -16,10 +17,16 @@ class XMLHttpRequestTemplateMiddlewareTest extends TestCase
 {
     use ProphecyTrait;
 
-    private $renderer;
-    private $middleware;
-    private $request;
-    private $handler;
+    /** @var TemplateRendererInterface */
+    private ObjectProphecy $renderer;
+
+    private XMLHttpRequestTemplateMiddleware $middleware;
+
+    /** @var ServerRequestInterface */
+    private ObjectProphecy $request;
+
+    /** @var RequestHandlerInterface */
+    private ObjectProphecy $handler;
 
     protected function setUp(): void
     {
@@ -46,7 +53,7 @@ class XMLHttpRequestTemplateMiddlewareTest extends TestCase
             $this->handler->reveal()
         );
 
-        $this->assertFalse((function ($renderer) {
+        $this->assertNull((function ($renderer) {
             return $renderer->layout;
         })->bindTo($this->renderer->reveal(), $this->renderer->reveal())($this->renderer->reveal()));
     }
