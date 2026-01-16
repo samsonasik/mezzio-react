@@ -11,6 +11,9 @@ return RectorConfig::configure()
         __DIR__ . '/src',
         __DIR__ . '/test',
     ])
+    ->withSkip([
+        __DIR__ . '/config/config.php',
+    ])
     ->withPhpSets()
     ->withComposerBased(phpunit: true)
     ->withImportNames();
