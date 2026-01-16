@@ -13,38 +13,36 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-versions: ['8.1', '8.2', '8.3']
+        php-versions: ['8.2', '8.3', '8.4']
     steps:
       - name: Setup PHP Action
-        uses: shivammathur/setup-php@1.8.2
+        uses: shivammathur/setup-php@v2
         with:
           extensions: intl
           php-version: "${{ matrix.php-versions }}"
-          coverage: pcov
+          coverage: xdebug
+          tools: composer:v2
+          ini-values: xdebug.mode=coverage
       - name: Checkout
         uses: actions/checkout@v2
       - name: "Validate composer.json and composer.lock"
-        run: "bin/composer validate"
+        run: "composer validate"
       - name: "Install dependencies"
-        run: "bin/composer install --prefer-dist --no-progress && bin/composer development-enable"
+        run: "composer install --prefer-dist --no-progress && composer development-enable"
+      - name: "Rector check"
+        run: "composer rector"
       - name: "CS Check"
-        run: "bin/composer cs-check"
+        run: "composer cs-check"
       - name: "Run test suite"
-        run: "bin/composer test-coverage"
-      - if: matrix.php-versions == '7.4'
-        name: Run mutation test
         env:
-          INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
-          STRYKER_DASHBOARD_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
-        run: |
-          composer require --dev infection/infection
-          vendor/bin/infection
+          XDEBUG_MODE: coverage
+        run: "composer test-coverage"
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
+        if: github.event.pull_request.head.repo.full_name == 'samsonasik/mezzio-react' && matrix.php-versions == '8.4'
+        uses: codecov/codecov-action@v4
         with:
-         token: ${{ secrets.CODECOV_TOKEN }}
-         file: ./clover.xml
-         flags: tests
-         name: codecov-umbrella
-         yml: ./codecov.yml
-         fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./clover.xml
+          flags: tests
+          name: codecov-umbrella
+          fail_ci_if_error: true

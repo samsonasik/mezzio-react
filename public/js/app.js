@@ -3,7 +3,7 @@ import Navigation from './Navigation.js';
 
 const {
   BrowserRouter,
-  Switch,
+  Routes,
   Route
 } = ReactRouterDOM;
 
@@ -15,34 +15,30 @@ const Main = () => createElement(
   'main',
   null,
   createElement(
-    Switch,
+    Routes,
     null,
     createElement(
       Route, {
-        exact: true,
         path: '/',
-        component: createPage('home', 'Home')
+        element: createElement(createPage('home', 'Home'))
       }
     ),
     createElement(
       Route, {
-        exact: true,
         path: '/about',
-        component: createPage('about', 'About', {name: 'Abdul Malik Ikhsan'})
+        element: createElement(createPage('about', 'About', {name: 'Abdul Malik Ikhsan'}))
       }
     ),
     createElement(
       Route, {
-        exact: true,
         path: '/contact',
-        component: createPage('contact', 'Contact')
+        element: createElement(createPage('contact', 'Contact'))
       }
     ),
     createElement(
       Route, {
-        exact: true,
         path: '*',
-        component: createPage('404 Page')
+        element: createElement(createPage('404 Page'))
       }
     )
   )

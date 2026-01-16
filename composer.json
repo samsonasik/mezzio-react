@@ -23,35 +23,36 @@
         }
     ],
     "require": {
-        "php": "^8.1",
-        "laminas/laminas-component-installer": "^2.1.2",
-        "laminas/laminas-config-aggregator": "^1.2",
-        "laminas/laminas-diactoros": "^2.3.0",
-        "laminas/laminas-servicemanager": "^3.4",
-        "laminas/laminas-stdlib": "^3.2.1",
-        "mezzio/mezzio": "^3.2.1",
-        "mezzio/mezzio-helpers": "^5.3",
-        "mezzio/mezzio-laminasrouter": "^3.0.1",
-        "mezzio/mezzio-laminasviewrenderer": "^2.2"
+        "php": "^8.2",
+        "laminas/laminas-component-installer": "^3.7",
+        "laminas/laminas-config-aggregator": "^1.19",
+        "laminas/laminas-development-mode": "^3.15",
+        "laminas/laminas-diactoros": "^2.26.0",
+        "laminas/laminas-servicemanager": "^3.24",
+        "laminas/laminas-stdlib": "^3.21.0",
+        "mezzio/mezzio": "^3.27.0",
+        "mezzio/mezzio-helpers": "^5.20",
+        "mezzio/mezzio-laminasrouter": "^3.12.0",
+        "mezzio/mezzio-laminasviewrenderer": "^2.19"
     },
     "require-dev": {
-        "filp/whoops": "^2.7.1",
-        "laminas/laminas-coding-standard": "^2.0.0",
-        "laminas/laminas-development-mode": "^3.2",
-        "phpspec/prophecy": "^1.10.3",
-        "phpspec/prophecy-phpunit": "^2.0",
-        "phpunit/phpunit": "^9.0.1",
+        "filp/whoops": "^2.18.4",
+        "laminas/laminas-coding-standard": "^3.1",
+        "phpspec/prophecy": "^1.24.0",
+        "phpspec/prophecy-phpunit": "^2.4",
+        "phpunit/phpunit": "^10.5.60",
+        "rector/rector": "^2.3.1",
         "roave/security-advisories": "dev-master"
     },
     "config": {
         "platform": {
-            "php": "8.1"
+            "php": "8.2"
         },
         "sort-packages": true,
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "laminas/laminas-component-installer": true,
-            "infection/extension-installer": true
+            "infection/extension-installer": true,
+            "laminas/laminas-component-installer": true
         }
     },
     "extra": {
@@ -91,6 +92,7 @@
         "development-enable": "laminas-development-mode enable",
         "development-status": "laminas-development-mode status",
         "mezzio": "mezzio --ansi",
+        "rector": "rector --dry-run",
         "serve": "php -S 0.0.0.0:8080 -t public/",
         "test": "phpunit --colors=always",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml --coverage-html=test/html --testdox"

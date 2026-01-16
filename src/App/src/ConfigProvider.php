@@ -4,6 +4,13 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Handler\AboutPageHandler;
+use App\Handler\ContactPageHandler;
+use App\Handler\HomePageHandler;
+use App\Handler\HomePageHandlerFactory;
+use App\Handler\PingHandler;
+use App\Middleware\NotFoundMiddleware;
+use App\Middleware\XMLHttpRequestTemplateMiddleware;
 use App\View\Helper\IsDevelopment;
 use Laminas\ServiceManager\AbstractFactory\ReflectionBasedAbstractFactory;
 
@@ -43,14 +50,14 @@ class ConfigProvider
     {
         return [
             'invokables' => [
-                Handler\PingHandler::class => Handler\PingHandler::class,
+                PingHandler::class => PingHandler::class,
             ],
             'factories'  => [
-                Handler\HomePageHandler::class                     => Handler\HomePageHandlerFactory::class,
-                Handler\AboutPageHandler::class                    => ReflectionBasedAbstractFactory::class,
-                Handler\ContactPageHandler::class                  => ReflectionBasedAbstractFactory::class,
-                Middleware\XMLHttpRequestTemplateMiddleware::class => ReflectionBasedAbstractFactory::class,
-                Middleware\NotFoundMiddleware::class               => ReflectionBasedAbstractFactory::class,
+                HomePageHandler::class                  => HomePageHandlerFactory::class,
+                AboutPageHandler::class                 => ReflectionBasedAbstractFactory::class,
+                ContactPageHandler::class               => ReflectionBasedAbstractFactory::class,
+                XMLHttpRequestTemplateMiddleware::class => ReflectionBasedAbstractFactory::class,
+                NotFoundMiddleware::class               => ReflectionBasedAbstractFactory::class,
             ],
         ];
     }

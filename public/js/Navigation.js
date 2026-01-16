@@ -65,30 +65,30 @@ class Navigation extends Component {
             id: 'navbarCollapse'
           },
           createElement(
-            'ul',
+            'div',
             {
               className: 'navbar-nav mr-auto'
             },
             createElement(
-              'li',
+              'div',
               {
                 className: 'nav-item'
               },
-              createElement(NavLink, {className: 'nav-link', to: '/', exact: true}, 'Home')
+              createElement(NavLink, {className: 'nav-link', to: '/'}, 'Home')
             ),
             createElement(
-              'li',
+              'div',
               {
                 className: 'nav-item'
               },
-              createElement(NavLink, {className: 'nav-link', to: '/about', exact: true}, 'About')
+              createElement(NavLink, {className: 'nav-link', to: '/about'}, 'About')
             ),
             createElement(
-              'li',
+              'div',
               {
                 className: 'nav-item'
               },
-              createElement(NavLink, {className: 'nav-link', to: '/contact', exact: true}, 'Contact')
+              createElement(NavLink, {className: 'nav-link', to: '/contact'}, 'Contact')
             )
           )
         )
