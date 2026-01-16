@@ -8,6 +8,8 @@
 .idea/
 /.idea
 
+/build/
+
 infection.log
 
 /.phpunit.result.cache
