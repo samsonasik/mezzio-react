@@ -73,6 +73,9 @@ composer install --no-dev
 
 # ensure no left over file cache before re-build cache
 composer clear-config-cache
+
+# disable dev
+composer development-disable
 ```
 
 In `default.phtml`, we have a `isDevelopment()` view helper check to use `js/app.js` when on development, and use `/js/dist/bundle.js` on production when exists.
