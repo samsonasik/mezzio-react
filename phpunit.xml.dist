@@ -4,17 +4,7 @@
     <include>
       <directory suffix=".php">./src</directory>
     </include>
-  </coverage>
-  <testsuites>
-    <testsuite name="App\\Tests">
-      <directory>./test</directory>
-    </testsuite>
-  </testsuites>
-  <php>
-      <ini name="xdebug.mode" value="coverage"/>
-  </php>
 
-  <coverage includeUncoveredFiles="true">
     <report>
       <clover outputFile="build/logs/clover.xml"/>
       <html outputDirectory="build/logs/html"/>
@@ -23,4 +13,12 @@
     </report>
   </coverage>
 
+  <testsuites>
+    <testsuite name="App\\Tests">
+      <directory>./test</directory>
+    </testsuite>
+  </testsuites>
+  <php>
+      <ini name="xdebug.mode" value="coverage"/>
+  </php>
 </phpunit>
