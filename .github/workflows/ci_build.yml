@@ -39,12 +39,13 @@ jobs:
         run: |
           composer require --dev infection/infection
           vendor/bin/infection
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v5
+      - if: matrix.php-versions == '8.2'
+        name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
         with:
-         token: ${{ secrets.CODECOV_TOKEN }}
-         files: ./clover.xml
-         flags: tests
-         name: codecov-umbrella
-         codecov_yml_path: ./codecov.yml
-         fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./build/logs/clover.xml
+          flags: tests
+          name: codecov-umbrella
+          yml: ./codecov.yml
+          fail_ci_if_error: true
