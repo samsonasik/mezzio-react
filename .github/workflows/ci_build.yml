@@ -36,7 +36,7 @@ jobs:
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./build/logs/clover.xml
+          files: ./clover.xml
           flags: tests
           name: codecov-umbrella
           codecov_yml_path: ./codecov.yml

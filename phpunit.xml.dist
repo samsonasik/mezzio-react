@@ -6,10 +6,7 @@
     </include>
 
     <report>
-      <clover outputFile="build/logs/clover.xml"/>
-      <html outputDirectory="build/logs/html"/>
-      <php outputFile="build/logs/coverage.serialized"/>
-      <text outputFile="php://stdout" showUncoveredFiles="false"/>
+      <clover outputFile="clover.xml"/>
     </report>
   </coverage>
 
