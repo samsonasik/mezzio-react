@@ -13,4 +13,14 @@
   <php>
       <ini name="xdebug.mode" value="coverage"/>
   </php>
+
+  <coverage includeUncoveredFiles="true">
+    <report>
+      <clover outputFile="build/logs/clover.xml"/>
+      <html outputDirectory="build/logs/html"/>
+      <php outputFile="build/logs/coverage.serialized"/>
+      <text outputFile="php://stdout" showUncoveredFiles="false"/>
+    </report>
+  </coverage>
+
 </phpunit>
