@@ -25,23 +25,23 @@
     "require": {
         "php": "^8.2",
         "laminas/laminas-component-installer": "^3.7",
-        "laminas/laminas-config-aggregator": "^1.2",
-        "laminas/laminas-development-mode": "^3.2",
-        "laminas/laminas-diactoros": "^2.3.0",
-        "laminas/laminas-servicemanager": "^3.4",
-        "laminas/laminas-stdlib": "^3.2.1",
-        "mezzio/mezzio": "^3.2.1",
-        "mezzio/mezzio-helpers": "^5.3",
-        "mezzio/mezzio-laminasrouter": "^3.0.1",
-        "mezzio/mezzio-laminasviewrenderer": "^2.2"
+        "laminas/laminas-config-aggregator": "^1.19",
+        "laminas/laminas-development-mode": "^3.15",
+        "laminas/laminas-diactoros": "^2.26.0",
+        "laminas/laminas-servicemanager": "^3.24",
+        "laminas/laminas-stdlib": "^3.21.0",
+        "mezzio/mezzio": "^3.27.0",
+        "mezzio/mezzio-helpers": "^5.20",
+        "mezzio/mezzio-laminasrouter": "^3.12.0",
+        "mezzio/mezzio-laminasviewrenderer": "^2.19"
     },
     "require-dev": {
-        "filp/whoops": "^2.7.1",
-        "laminas/laminas-coding-standard": "^2.0.0",
-        "phpspec/prophecy": "^1.10.3",
-        "phpspec/prophecy-phpunit": "^2.0",
-        "phpunit/phpunit": "^10.0",
-        "rector/rector": "^2.3",
+        "filp/whoops": "^2.18.4",
+        "laminas/laminas-coding-standard": "^3.1",
+        "phpspec/prophecy": "^1.24.0",
+        "phpspec/prophecy-phpunit": "^2.4",
+        "phpunit/phpunit": "^10.5.60",
+        "rector/rector": "^2.3.1",
         "roave/security-advisories": "dev-master"
     },
     "config": {
