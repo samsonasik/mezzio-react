@@ -23,8 +23,8 @@
         }
     ],
     "require": {
-        "php": "^8.1",
-        "laminas/laminas-component-installer": "^2.1.2",
+        "php": "^8.2",
+        "laminas/laminas-component-installer": "^3.7",
         "laminas/laminas-config-aggregator": "^1.2",
         "laminas/laminas-development-mode": "^3.2",
         "laminas/laminas-diactoros": "^2.3.0",
@@ -45,13 +45,13 @@
     },
     "config": {
         "platform": {
-            "php": "8.1"
+            "php": "8.2"
         },
         "sort-packages": true,
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "laminas/laminas-component-installer": true,
-            "infection/extension-installer": true
+            "infection/extension-installer": true,
+            "laminas/laminas-component-installer": true
         }
     },
     "extra": {
