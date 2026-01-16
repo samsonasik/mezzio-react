@@ -53,9 +53,12 @@ class XMLHttpRequestTemplateMiddlewareTest extends TestCase
             $this->handler->reveal()
         );
 
-        $this->assertNull((function ($renderer) {
-            return $renderer->layout;
-        })->bindTo($this->renderer->reveal(), $this->renderer->reveal())($this->renderer->reveal()));
+        $this->assertNull(
+            (fn($renderer) => $renderer->layout)->bindTo(
+                $this->renderer->reveal(),
+                $this->renderer->reveal()
+            )($this->renderer->reveal())
+        );
     }
 
     public function testEnableLayoutOnNormalHttpRequest()
@@ -69,9 +72,10 @@ class XMLHttpRequestTemplateMiddlewareTest extends TestCase
 
         $this->assertEquals(
             'layout',
-            (function ($renderer) {
-                return $renderer->layout;
-            })->bindTo($this->renderer->reveal(), $this->renderer->reveal())($this->renderer->reveal())
+            (fn($renderer) => $renderer->layout)->bindTo(
+                $this->renderer->reveal(),
+                $this->renderer->reveal()
+            )($this->renderer->reveal())
         );
     }
 }

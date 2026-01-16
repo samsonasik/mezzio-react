@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace AppTest\Unit\View\Helper;
 
 use App\View\Helper\IsDevelopment;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class IsDevelopmentTest extends TestCase
 {
-    public function provideConfig(): array
+    public static function provideConfig(): array
     {
         return [
             'non empty falsy debug config' => [['debug' => false]],
@@ -17,9 +18,7 @@ class IsDevelopmentTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider provideConfig
-     */
+    #[DataProvider('provideConfig')]
     public function testIsNotDevelopment(array $config)
     {
         $helper = new IsDevelopment($config);

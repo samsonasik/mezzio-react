@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Laminas\HttpHandlerRunner\ConfigProvider;
 use Laminas\ConfigAggregator\ArrayProvider;
 use Laminas\ConfigAggregator\ConfigAggregator;
 use Laminas\ConfigAggregator\PhpFileProvider;
@@ -13,7 +14,7 @@ $cacheConfig = [
 ];
 
 $aggregator = new ConfigAggregator([
-    \Laminas\HttpHandlerRunner\ConfigProvider::class,
+    ConfigProvider::class,
     \Mezzio\LaminasView\ConfigProvider::class,
     \Mezzio\Router\LaminasRouter\ConfigProvider::class,
     \Laminas\Router\ConfigProvider::class,
@@ -29,7 +30,7 @@ $aggregator = new ConfigAggregator([
     // Swoole config to overwrite some services (if installed)
     class_exists(\Mezzio\Swoole\ConfigProvider::class)
         ? \Mezzio\Swoole\ConfigProvider::class
-        : function(){ return[]; },
+        : (fn() => []),
 
     // Default App module config
     App\ConfigProvider::class,
