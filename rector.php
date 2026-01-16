@@ -12,7 +12,7 @@ return RectorConfig::configure()
         __DIR__ . '/test',
     ])
     ->withSkip([
-        __DIR__ . '/config/config.php',
+        __DIR__ . '/config/',
     ])
     ->withPhpSets()
     ->withComposerBased(phpunit: true)
