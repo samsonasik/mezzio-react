@@ -65,17 +65,11 @@ Entrypoint main = public/js/dist/bundle.js
 After it generated, we can run the following commands to get `production` environment by default:
 
 ```bash
-# ensure no left over file development config
-rm config/development.config.php && rm config/autoload/development.local.php
+# disable dev
+composer development-disable
 
 # install with --no-dev
 composer install --no-dev
-
-# ensure no left over file cache before re-build cache
-composer clear-config-cache
-
-# disable dev
-composer development-disable
 ```
 
 In `default.phtml`, we have a `isDevelopment()` view helper check to use `js/app.js` when on development, and use `/js/dist/bundle.js` on production when exists.
