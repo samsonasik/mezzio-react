@@ -29,6 +29,8 @@ jobs:
         run: "composer validate"
       - name: "Install dependencies"
         run: "composer install --prefer-dist --no-progress && composer development-enable"
+      - name: "Rector check"
+        run: "composer rector"
       - name: "CS Check"
         run: "composer cs-check"
       - name: "Run test suite"
