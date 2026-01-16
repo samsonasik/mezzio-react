@@ -40,11 +40,11 @@ jobs:
           composer require --dev infection/infection
           vendor/bin/infection
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v5
         with:
          token: ${{ secrets.CODECOV_TOKEN }}
-         file: ./clover.xml
+         files: ./clover.xml
          flags: tests
          name: codecov-umbrella
-         yml: ./codecov.yml
+         codecov_yml_path: ./codecov.yml
          fail_ci_if_error: true
